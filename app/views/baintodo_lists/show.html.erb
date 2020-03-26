@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @baintodo_list.title %>
+</p>
+
+<p>
+  <strong>Descrption:</strong>
+  <%= @baintodo_list.descrption %>
+</p>
+
+
+<div id="baintodo_items_wrapper">
+  <%= render @baintodo_list.baintodo_items %>
+  <div id="form">
+    <%= render "baintodo_items/form" %>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_baintodo_list_path(@baintodo_list) %> |
+<%= link_to 'Back', baintodo_lists_path %>

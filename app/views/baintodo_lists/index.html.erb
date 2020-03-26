@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Baintodo Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Descrption</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @baintodo_lists.each do |baintodo_list| %>
+      <tr>
+        <td><%= baintodo_list.title %></td>
+        <td><%= baintodo_list.descrption %></td>
+        <td><%= link_to 'Show', baintodo_list %></td>
+        <td><%= link_to 'Edit', edit_baintodo_list_path(baintodo_list) %></td>
+        <td><%= link_to 'Destroy', baintodo_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Baintodo List', new_baintodo_list_path %>
