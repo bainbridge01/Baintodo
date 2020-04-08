@@ -1,5 +1,6 @@
 class BaintodoItemsController < ApplicationController
   before_action :set_baintodo_list 
+  before_action :set_baintodo_item, except: [:create]
   
   #this creates action for creating new baintodo's
   def create
@@ -17,6 +18,12 @@ class BaintodoItemsController < ApplicationController
     redirect_to @baintodo_list
   end
   
+  
+  def complete
+   @baintodo_item.update_attribute(:completed_at, Time.now)
+   redirect_to @baintodo_list, notice: "Todo item completed"
+  end
+  
   private
   
   def set_baintodo_list
@@ -24,7 +31,14 @@ class BaintodoItemsController < ApplicationController
     @baintodo_list = BaintodoList.find(params[:baintodo_list_id])
   end
   
+   def set_baintodo_item
+    @baintodo_item = @baintodo_list.baintodo_items.find(params[:id])
+   end
+
   def baintodo_item_params
     params[:baintodo_item].permit(:content)
   end
+    
+ 
+  
 end

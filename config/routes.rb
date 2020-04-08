@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   #the baintodo_lists has many baintodo_items therefore baintodo belongs_to :list
   resources :baintodo_lists do
-   resources :baintodo_items
+   resources :baintodo_items do
+     member do
+       patch :complete
+     end
+    end
   end
   
   root "baintodo_lists#index"
