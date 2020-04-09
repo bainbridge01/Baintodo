@@ -1,15 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @baintodo_list.title %>
-</p>
-
-<p>
-  <strong>Descrption:</strong>
-  <%= @baintodo_list.descrption %>
-</p>
-
+<h2 class="baintodo_list_title"><%= @baintodo_list.title %></h2>
+<p class="baintodo_list_sub_title"><%= @baintodo_list.descrption %></p>
 
 <div id="baintodo_items_wrapper">
   <%= render @baintodo_list.baintodo_items %>
@@ -18,5 +10,8 @@
   </div>
 </div>
 
-<%= link_to 'Edit', edit_baintodo_list_path(@baintodo_list) %> |
-<%= link_to 'Back', baintodo_lists_path %>
+<div class="links">
+  <%= link_to 'Edit', edit_baintodo_list_path(@baintodo_list) %> |
+  <%= link_to 'Delete', baintodo_list_path(@baintodo_list), method: :delete, data: { confirm: "Are you sure?" } %> |
+  <%= link_to 'Back', baintodo_lists_path %>
+</div>

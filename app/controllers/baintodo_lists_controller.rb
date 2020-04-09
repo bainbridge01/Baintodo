@@ -56,7 +56,7 @@ class BaintodoListsController < ApplicationController
   def destroy
     @baintodo_list.destroy
     respond_to do |format|
-      format.html { redirect_to baintodo_lists_url, notice: 'Baintodo list was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Baintodo list was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -1,3 +1,15 @@
+<% @baintodo_lists.each do |baintodo_list| %>
+<div class="index_row clearfix">
+  <h2 class="baintodo_list_title"><%= link_to baintodo_list.title, baintodo_list %></h2>
+  <p class="baintodo_list_sub_title"><%= baintodo_list.descrption %></p>
+</div>
+<% end %>
+<div class="links">
+  <%= link_to "New baintodo List", new_baintodo_list_path %>
+</div>
+
+
+<!--- 
 <p id="notice"><%= notice %></p>
 
 <h1>Baintodo Lists</h1>
@@ -27,3 +39,4 @@
 <br>
 
 <%= link_to 'New Baintodo List', new_baintodo_list_path %>
+ -->
